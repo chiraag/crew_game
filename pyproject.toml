@@ -1,0 +1,31 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "crew_game"
+authors = [{ name = "Chiraag Juvekar", email = "chiraag.juekar@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "fastapi",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+    "requests_oauthlib",
+    "urwid",
+    "termcolor",
+    "tabulate",
+]
+
+[project.scripts]
+crew_helper = "crew_game.ui:main"
+
+[project.optional-dependencies]
+dev = ["isort", "black", "uvicorn[standard]"]
+
+[project.urls]
+Home = "https://github.com/chiraag/crew_game"
+
+[tool.isort]
+profile = "black"
