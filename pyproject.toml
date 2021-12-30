@@ -6,6 +6,7 @@ build-backend = "flit_core.buildapi"
 name = "crew-game"
 authors = [{ name = "Chiraag Juvekar", email = "chiraag.juekar@gmail.com" }]
 license = { file = "LICENSE" }
+requires-python = ">=3.6, <4"
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
 dependencies = [
