@@ -1,8 +1,8 @@
 import os
 import random
-import tabulate
-
 from dataclasses import dataclass
+
+import tabulate
 from termcolor import colored
 
 NUM_GOALS = 9

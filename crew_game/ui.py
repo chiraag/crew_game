@@ -1,18 +1,23 @@
 import string
+
 import urwid
 
-import core
+from crew_game import core
 
 
 class FixedNumericEdit(urwid.Edit):
     def __init__(
-        self, caption="", edit_text="", width=1,
+        self,
+        caption="",
+        edit_text="",
+        width=1,
     ):
 
         self.max_width = width
 
         super().__init__(
-            caption=caption, edit_text=edit_text,
+            caption=caption,
+            edit_text=edit_text,
         )
 
     def keypress(self, size, key):
@@ -189,7 +194,10 @@ class SampledGoals(urwid.WidgetWrap):
         self.goal_list = []
         self.ext_callback = callback
         self.box = urwid.Columns(self.widget_list(), min_width=20)
-        self.panel = urwid.LineBox(self.box, f"Pending Goals",)
+        self.panel = urwid.LineBox(
+            self.box,
+            f"Pending Goals",
+        )
 
         super().__init__(self.panel)
 
@@ -235,6 +243,10 @@ class Game:
             raise urwid.ExitMainLoop()
 
 
-if __name__ == "__main__":
+def main():
     game = Game()
     urwid.MainLoop(game.window, palette=palette, unhandled_input=game.exit_window).run()
+
+
+if __name__ == "__main__":
+    main()

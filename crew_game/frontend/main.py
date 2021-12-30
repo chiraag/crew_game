@@ -9,7 +9,6 @@ os.environ["REQUESTS_CA_BUNDLE"] = ROOT_CA
 from oauthlib.oauth2 import LegacyApplicationClient
 from requests_oauthlib import OAuth2Session
 
-
 BASE_URL = "https://192.168.0.12"
 
 client = LegacyApplicationClient(client_id="")
