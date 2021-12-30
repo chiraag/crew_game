@@ -3,7 +3,7 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "crew_game"
+name = "crew-game"
 authors = [{ name = "Chiraag Juvekar", email = "chiraag.juekar@gmail.com" }]
 license = { file = "LICENSE" }
 classifiers = ["License :: OSI Approved :: MIT License"]
@@ -17,6 +17,9 @@ dependencies = [
     "termcolor",
     "tabulate",
 ]
+
+[tool.flit.module]
+name = "crew_game"
 
 [project.scripts]
 crew_helper = "crew_game.ui:main"
