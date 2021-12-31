@@ -23,7 +23,7 @@ dependencies = [
 name = "crew_game"
 
 [project.scripts]
-crew_helper = "crew_game.ui:main"
+crew_helper = "crew_game.crew_helper:main"
 
 [project.optional-dependencies]
 dev = ["isort", "black", "uvicorn[standard]"]
