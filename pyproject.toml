@@ -9,7 +9,7 @@ license = { file = "LICENSE" }
 requires-python = ">=3.6, <4"
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
-dependencies = ["requests_oauthlib", "urwid", "termcolor"]
+dependencies = ["dotenv", "requests_oauthlib", "urwid", "termcolor"]
 
 [tool.flit.module]
 name = "crew_game"
@@ -19,7 +19,12 @@ crew_helper = "crew_game.crew_helper:main"
 
 [project.optional-dependencies]
 dev = ["isort", "black", "uvicorn[standard]"]
-backend = ["fastapi", "python-jose[cryptography]", "passlib[bcrypt]"]
+backend = [
+    "fastapi",
+    "python-multipart",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+]
 
 [project.urls]
 Home = "https://github.com/chiraag/crew_game"

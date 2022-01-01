@@ -1,4 +1,7 @@
 .vscode
+
 __pycache__
 dist
+
+.env
 crew-test

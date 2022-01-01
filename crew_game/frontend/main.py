@@ -1,15 +1,11 @@
 import os
 
-ROOT_CA = (
-    "/Users/chiraag/Library/Application Support/Caddy/pki/authorities/local/root.crt"
-)
-
-os.environ["REQUESTS_CA_BUNDLE"] = ROOT_CA
-
+from dotenv import load_dotenv
 from oauthlib.oauth2 import LegacyApplicationClient
 from requests_oauthlib import OAuth2Session
 
-BASE_URL = "https://192.168.0.12"
+load_dotenv()
+BASE_URL = os.environ["BASE_URL"]
 
 client = LegacyApplicationClient(client_id="")
 oauth = OAuth2Session(client=client)
