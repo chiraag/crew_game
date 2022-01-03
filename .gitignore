@@ -4,5 +4,6 @@ __pycache__
 dist
 
 .env
-crew_backend.db
+data
+
 crew-test

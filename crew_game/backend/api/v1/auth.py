@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from pydantic import EmailStr
 from sqlalchemy.orm import Session
 
-from crew_game.backend import schemas, settings
+from crew_game.backend import mail, schemas, settings
 from crew_game.backend.api import deps
 from crew_game.backend.database import crud, models
 from crew_game.backend.util import security
@@ -71,6 +71,35 @@ async def register_user(
 
     return user
 
+
+@router.post("/test-email", response_model=schemas.Msg)
+async def send_test_email():
+    print(settings.TEST_EMAIL_ALLOWED)
+    if not settings.TEST_EMAIL_ALLOWED:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN, detail="Test email API is diabled"
+        )
+
+    template = mail.JINJA_ENV.get_template("test-email.jinja")
+    message = mail.create_message(
+        to_addr=settings.TEST_EMAIL_ADDR,
+        subject="Testing Email",
+        template=template,
+        data={"email": settings.TEST_EMAIL_ADDR},
+    )
+
+    try:
+        mail.send_email(message)
+    except mail.EmailError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Failed to send the test email",
+        )
+
+    return {"msg": "Test Email Sent"}
+
+
+# TODO: confirm-registration
 
 # TODO: recover-password
 # TODO: reset-password
