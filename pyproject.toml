@@ -21,6 +21,7 @@ crew_helper = "crew_game.crew_helper:main"
 dev = ["isort", "black", "uvicorn[standard]"]
 backend = [
     "fastapi",
+    "pydantic[email]",
     "python-multipart",
     "python-jose[cryptography]",
     "passlib[bcrypt]",

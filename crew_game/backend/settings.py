@@ -10,6 +10,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 API_VERSION = "v1"
 
+ALLOW_REGISTRATION = True
+
 fake_users_db = {
     "johndoe": {
         "id": 0,
