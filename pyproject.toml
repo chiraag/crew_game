@@ -9,7 +9,7 @@ license = { file = "LICENSE" }
 requires-python = ">=3.6, <4"
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
-dependencies = ["dotenv", "requests_oauthlib", "urwid", "termcolor"]
+dependencies = ["python-dotenv", "requests_oauthlib", "urwid", "termcolor"]
 
 [tool.flit.module]
 name = "crew_game"
@@ -24,6 +24,8 @@ backend = [
     "python-multipart",
     "python-jose[cryptography]",
     "passlib[bcrypt]",
+    "sqlalchemy",
+    "alembic",
 ]
 
 [project.urls]

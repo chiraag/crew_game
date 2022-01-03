@@ -1,6 +1,13 @@
 from sqlalchemy.orm import Session
 
-from . import models, schemas
+from crew_game.backend import schemas
+from crew_game.backend.database import models
+
+
+def get_user_fake(db: dict, username: str):
+    if username in db:
+        user_dict = db[username]
+        return schemas.UserInDB(**user_dict)
 
 
 def get_user(db: Session, user_id: int):
