@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from typing import Optional
 
 import pydantic
 from jose import jwt
@@ -9,11 +10,12 @@ from crew_game.backend import schemas, settings
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-def create_token(sub: str, delta_min: str):
+def create_token(token_data: schemas.TokenData, delta_min: str) -> str:
     delta = timedelta(delta_min)
     now = datetime.utcnow()
     expires = delta + now
-    claims = {"exp": expires, "nbf": now, "sub": sub}
+    claims = {"exp": expires, "nbf": now}
+    claims.update(token_data.dict())
     encoded_jwt = jwt.encode(
         claims,
         settings.SECRET_KEY,
@@ -22,27 +24,22 @@ def create_token(sub: str, delta_min: str):
     return encoded_jwt
 
 
-def create_access_token(username: str):
-    return create_token(username, settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+def create_token_url(endpoint: str, token: str) -> str:
+    return f"{settings.BASE_URL}/{endpoint}?token={token}"
 
 
-def create_register_token(email: str):
-    return create_token(email, settings.REGISTER_TOKEN_EXPIRE_MINUTES)
-
-
-def create_reset_token(email: str):
-    return create_token(email, settings.RESET_TOKEN_EXPIRE_MINUTES)
-
-
-def verify_token(token: str, exception: Exception):
+def verify_token(token: str, domain: str) -> Optional[schemas.TokenData]:
     try:
         payload = jwt.decode(
             token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
         )
         token_data = schemas.TokenData(**payload)
-        return token_data
+        if token_data.domain == domain:
+            return token_data
+        else:
+            return None
     except (jwt.JWTError, pydantic.ValidationError):
-        raise exception
+        return None
 
 
 def verify_password(plain_password, hashed_password):

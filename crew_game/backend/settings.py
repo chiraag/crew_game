@@ -1,11 +1,15 @@
 import os
+import secrets
 from distutils.util import strtobool
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.environ["BACKEND_JWT_KEY"]
+LOCAL_DEV = strtobool(os.environ["LOCAL_DEV"])
+BASE_URL = os.environ["BASE_URL"]
+
+SECRET_KEY = os.environ["JWT_SECRET"] if LOCAL_DEV else secrets.token_hex(32)
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 REGISTER_TOKEN_EXPIRE_MINUTES = 30

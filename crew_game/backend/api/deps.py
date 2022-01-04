@@ -30,7 +30,9 @@ async def get_current_user(
         headers={"WWW-Authenticate": "Bearer"},
     )
 
-    token_data = security.verify_token(token, credentials_exception)
+    token_data = security.verify_token(token, domain="access")
+    if not token_data:
+        raise credentials_exception
 
     user = crud.get_user_by_username(db, username=token_data.sub)
     if user is None:
