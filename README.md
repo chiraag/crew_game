@@ -1,22 +1,9 @@
 # Crew Board Game
 
-An in-progress implementation of the crew board-game with some helper scripts for an over-the-board (OTB) game.
+An in-progress implementation of the crew board-game with some helper scripts for an over-the-board (OTB) game. This repository will host three separate but related projects.
 
-## Installation
+* `crew_helper`: A simple CLI+TUI utility to randomize goals for an OTB game
+* `crew_backend`: A FastAPI backend to host an an online game.
+* `crew_frontend`: A React frontend to play an online game.
 
-To install run the following command:
-
-```
-pip install crew_game
-```
-
-It is strongly recommended to install this package in a [virtual environment](https://docs.python.org/3/tutorial/venv.html)
-
-## Development
-
-This repo is packaged using [`flit`](https://flit.readthedocs.io/en/latest/). To get started with development, clone this repo and install with:
-
-```
-git clone https://github.com/chiraag/crew_game.git
-flit install -s
-```
+For installation and development instructions looking at the `README` in the respective folders.
