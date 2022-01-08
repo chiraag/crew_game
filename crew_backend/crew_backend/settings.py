@@ -4,7 +4,7 @@ from distutils.util import strtobool
 
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv("data/.env")
 
 LOCAL_DEV = strtobool(os.environ["LOCAL_DEV"])
 BASE_URL = os.environ["BASE_URL"]
