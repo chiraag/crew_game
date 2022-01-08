@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from crew_game.backend import schemas
-from crew_game.backend.database import models
-from crew_game.backend.util import security
+from crew_backend import schemas
+from crew_backend.database import models
+from crew_backend.util import security
 
 
 def get_user(db: Session, user_id: int):

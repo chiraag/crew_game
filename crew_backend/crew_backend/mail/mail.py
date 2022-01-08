@@ -5,9 +5,9 @@ from typing import Dict
 from googleapiclient.errors import HttpError
 from jinja2 import Environment, PackageLoader, Template
 
-from crew_game.backend.mail import gmail
+import crew_backend.mail.gmail as gmail
 
-JINJA_ENV = Environment(loader=PackageLoader("crew_game", "backend/mail/templates"))
+JINJA_ENV = Environment(loader=PackageLoader("crew_backend", "mail/templates"))
 
 
 def create_message(to_addr: str, subject: str, template: Template, data: dict):

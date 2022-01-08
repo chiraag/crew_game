@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from crew_game.backend.api.deps import get_current_active_user
-from crew_game.backend.schemas.user import User
+from crew_backend.api.deps import get_current_active_user
+from crew_backend.schemas.user import User
 
 router = APIRouter()
 

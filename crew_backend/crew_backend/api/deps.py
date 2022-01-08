@@ -4,9 +4,9 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
-from crew_game.backend import schemas, settings
-from crew_game.backend.database import crud, database, models
-from crew_game.backend.util import security
+from crew_backend import schemas, settings
+from crew_backend.database import crud, database, models
+from crew_backend.util import security
 
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl=f"{settings.API_VERSION}/auth/access-token"

@@ -5,7 +5,7 @@ import pydantic
 from jose import jwt
 from passlib.context import CryptContext
 
-from crew_game.backend import schemas, settings
+from crew_backend import schemas, settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

@@ -3,10 +3,10 @@ from fastapi.security import OAuth2PasswordRequestForm
 from pydantic import EmailStr
 from sqlalchemy.orm import Session
 
-from crew_game.backend import mail, schemas, settings
-from crew_game.backend.api import deps
-from crew_game.backend.database import crud, models
-from crew_game.backend.util import security
+from crew_backend import mail, schemas, settings
+from crew_backend.api import deps
+from crew_backend.database import crud, models
+from crew_backend.util import security
 
 router = APIRouter()
 

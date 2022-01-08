@@ -26,6 +26,11 @@ name = "crew_backend"
 
 [project.optional-dependencies]
 dev = ["isort", "black", "uvicorn[standard]"]
+gmail = [
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
+]
 scripts = ["requests_oauthlib"]
 
 [project.urls]
