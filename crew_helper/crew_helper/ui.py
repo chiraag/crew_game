@@ -2,7 +2,7 @@ import string
 
 import urwid
 
-from crew_game import core
+from crew_helper import core
 
 
 class FixedNumericEdit(urwid.Edit):

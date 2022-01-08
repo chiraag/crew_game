@@ -1,6 +1,6 @@
 import argparse
 
-from crew_game import core, ui
+from crew_helper import core, ui
 
 
 def input_validation(args):

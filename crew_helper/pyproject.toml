@@ -12,10 +12,10 @@ dynamic = ["version", "description"]
 dependencies = ["urwid", "termcolor"]
 
 [tool.flit.module]
-name = "crew_game"
+name = "crew_helper"
 
 [project.scripts]
-crew_helper = "crew_helper.crew_main:main"
+crew_helper = "crew_helper.main:main"
 
 [project.optional-dependencies]
 dev = ["isort", "black"]
