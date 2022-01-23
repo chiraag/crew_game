@@ -65,7 +65,7 @@ export default function SettingsPane({settings, settingsCallback, goalsCallback}
 
   return (
     <Stack direction="row" spacing={2}>
-      <IntSelect title="Goals" start={1} end={9} value={settings.goals} callback={updateSettings}/>
+      <IntSelect title="Goals" start={1} end={12} value={settings.goals} callback={updateSettings}/>
       <IntSelect title="Ordered" start={0} end={settings.goals} value={settings.ordered} callback={updateSettings}/>
       <IntSelect title="Players" start={3} end={5} value={settings.players} callback={updateSettings}/>
       <Button variant="contained" endIcon={<CasinoIcon />} onClick={updateGoals} fullWidth sx={{maxWidth: "96px"}}> Pick </Button>
